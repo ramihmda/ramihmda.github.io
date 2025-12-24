@@ -4,10 +4,10 @@ permalink: /projects/
 author_profile: true
 ---
 
-### [3D Printing System for Sensor Fabrication](/projects/3d-printing/)
-3D printer for the fabrication of gallium metal sensors
+### [Liquid Metal Sensor Fabrication](/projects/3d-printing/)
+3D printing platform for precision fabrication of stretchable strain sensors
 
 ---
 
-### [Colonoscopy Robot Development](/projects/colonoscopy/)
-4-DOF colonoscopy robot with vision based tumor detection 
+### [Colonoscopy Robot](/projects/colonoscopy/)
+4-DOF teleoperated robot with real-time vision-based tumor detection
