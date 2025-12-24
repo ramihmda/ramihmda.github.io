@@ -10,5 +10,4 @@ author_profile: true
 ---
 
 ### [Colonoscopy Robot Development](/projects/colonoscopy/)
-**Short description:**  
 4-DOF colonoscopy robot with vision based tumor detection 
