@@ -23,7 +23,7 @@ description: >-
 #twitter_username: username
 github_username: 1ramihamada
 minimal_mistakes_skin: mint
-search: true
+search: false
 
 # Build settings
 markdown: kramdown
