@@ -68,7 +68,7 @@ To achieve repeatable deposition, I calibrated the interaction between printer m
 These calibrations enabled consistent, high-precision deposition suitable for research-scale sensor fabrication.
 
 <figure class="align-center">
-  <img src="/assets/images/sample_sensor.png" alt="Liquid metal pressure sweep test" style="max-width: 900px; width: 100%;">
+  <img src="/assets/images/sensor_samples.png" alt="Liquid metal pressure sweep test" style="max-width: 900px; width: 100%;">
   <figcaption>
     Pressure sweep showing six gallium prints deposited at a fixed feed rate (12000) and Z height (15 mm).
     Pressure was increased from 1.2 bar to 1.7 bar in 0.1 bar increments to evaluate trace continuity and pooling behavior.
