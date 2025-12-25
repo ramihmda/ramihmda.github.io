@@ -70,12 +70,13 @@ These calibrations enabled consistent, high-precision deposition suitable for re
 <figure class="align-center">
   <img src="/assets/images/sensor_samples.png"
        alt="Liquid metal pressure sweep test"
-       style="max-width: 500px; display: block; margin: 0 auto;">
-  <figcaption>
+       style="max-width: 600px; display: block; margin: 0 auto;">
+  <figcaption style="max-width: 600px; margin: 0 auto;">
     Pressure sweep showing six gallium prints deposited at a fixed feed rate (12000) and Z height (15 mm).
     Pressure was increased from 1.2 bar to 1.7 bar in 0.1 bar increments to evaluate trace continuity and pooling behavior.
   </figcaption>
 </figure>
+
 
 ## Sensor Fabrication Workflow
 With repeatable liquid metal deposition established, the system enabled a layered fabrication process for stretchable strain sensors without requiring a dedicated mold for each geometry.
