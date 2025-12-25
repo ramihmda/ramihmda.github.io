@@ -43,67 +43,36 @@ The GUI continuously monitors system state through a serial response terminal th
 
 ---
 
-## Hardware Integration
-A desktop Prusa-style printer was mechanically adapted to carry a precision air dispensing toolhead. Custom mounts were designed to ensure stable extrusion while maintaining access to the printer’s full workspace.
-
-![Integrated printer and dispenser](../assets/images/3d-printing/printer_setup.jpg)
-
-The air dispenser allows fine-grained control over extrusion pressure, which is critical for liquid metal deposition consistency.
-
----
-
-## Software & Control
-A **modular ROS2 architecture** was implemented to separate concerns and enable parallel execution:
-
-- **GUI node** – real-time parameter tuning and system control
-- **Printer node** – high-speed G-code streaming and motion control
-- **Dispenser node** – pressure and timing control
-- **Camera node** – visual feedback and monitoring
-
-This separation enabled sustained high-speed operation without dropped commands or timing jitter.
-
----
-
 ## Custom Firmware Modifications
-The printer firmware was modified to:
-- Integrate external heating elements
-- Recalibrate motion and temperature sensors
-- Adjust motion logic to account for liquid metal deposition dynamics
+The stock Prusa firmware was modified to support the non-standard hardware and thermal behavior required for liquid metal printing. Gallium solidifies near room temperature but becomes overly fluid if overheated, so maintaining a narrow temperature range is essential for stable extrusion and consistent trace formation.
 
-These changes significantly improved print repeatability and trace continuity compared to stock firmware behavior.
+### Thermal Handling
+The default firmware temperature limits and safety checks were adjusted to allow the use of an external heating element on the syringe-based toolhead. These changes prevented the printer from faulting due to assumptions made for thermoplastic extrusion, while still allowing the liquid metal to remain molten throughout a print.
 
----
+Careful temperature control was necessary to balance material flow and trace definition, since small temperature changes significantly affect gallium viscosity.
 
-## Mold-Based Fabrication & Registration
-To support fabrication inside custom molds, a **G-code transformation module** was implemented. Using user-defined registration points, print paths are transformed from global printer coordinates into mold-aligned coordinates.
+### Kinematic Tuning
+Motion parameters were recalibrated to account for the added mass and inertia of the syringe-based toolhead. Acceleration and jerk settings were reduced to limit mechanical vibrations that would otherwise cause breaks or thinning in conductive traces.
 
-This enabled:
-- Accurate placement within irregular geometries
-- Repeatable mold-based sensor fabrication
-- Rapid iteration without redesigning toolpaths
+### Sensor Calibration
+Thermistor tables and motion limits were updated to reflect the custom heating hardware and modified toolhead geometry. This ensured temperature readings and motion bounds remained consistent with the physical setup.
+
+These firmware changes provide the mechanical and thermal stability needed for the ROS2 control system to execute precise motion and extrusion commands.
 
 ---
 
-## Fabrication Results
-The system was used to fabricate spiral-pattern liquid metal strain sensors with consistent trace width and geometry across multiple runs.
+## Calibration and Path Optimization
+Before fabricating functional sensors, a series of calibration routines were used to synchronize the pneumatic dispenser with the printer’s motion system. Gallium-based alloys have high surface tension and low viscosity, which makes them prone to beading or trace breakage when pressure and print speed are not properly matched.
 
-![Printed liquid metal strain sensors](../assets/images/3d-printing/sensor_samples.jpg)
+### Pressure–Speed Synchronization
+Spiral test patterns were used to evaluate trace continuity under changing motion conditions. Spirals are well suited for this purpose because they involve continuous changes in direction and velocity. By running these patterns at different feed rates and pressures, the optimal pressure settings in the Nordson node were identified to match the Prusa node’s motion profile. This prevented material pooling at corners and discontinuities along straight segments.
 
----
+### Nozzle Height (Z Calibration)
+Liquid metal deposition is highly sensitive to the gap between the syringe tip and the substrate. If the nozzle is too high, surface tension causes the material to bead into droplets; if it is too low, the tip drags through the deposited trace. A stepped calibration block was used to determine the Z-offset that maintains a continuous bridge of material between the nozzle and the surface.
 
-## My Contributions
-- Designed and built an integrated 3D printing + air dispensing platform
-- Developed a custom GUI for precise, real-time control of fabrication parameters
-- Implemented a modular ROS2 architecture for coordinated multi-device control
-- Modified printer firmware for heating integration and liquid metal–specific motion logic
-- Developed a G-code transformation pipeline for mold-aligned printing using registration points
+### Start/Stop Latency Compensation
+Unlike thermoplastic extrusion, liquid metal exhibits inertia and a short delay between pneumatic actuation and material flow. To compensate for this, G-code trigger timing and vacuum retract parameters in the Nordson node were tuned to eliminate tails and blobs at the ends of conductive paths. This ensured clean starts and stops for individual traces.
 
----
+Together, these calibration steps enabled the transition from exploratory material testing to the repeatable, high-precision deposition required for research-scale sensor fabrication.
 
-## Skills & Technologies
-- ROS2
-- G-code generation and streaming
-- Embedded firmware modification
-- Precision fluid dispensing
-- Mechatronic system integration
-- Experimental fabrication workflows
+![Printed liquid metal strain sensors](../assets/images/sensor_samples.png)
