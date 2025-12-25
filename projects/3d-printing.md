@@ -36,9 +36,9 @@ I developed a wxPython-based GUI that serves as the control layer for the ROS2 s
 
 The interface provides four core functions:
 - **Manual Control:** Jogging axes, homing, and sending raw G-code, with dedicated controls to prime and clear the Nordson dispenser.
-- **Coordinate Registration:** Recording reference points on a substrate and computing a transform to align digital toolpaths with custom molds.
-- **Live Parameter Tuning:** Adjusting extrusion pressure and vacuum retract settings mid-print to compensate for material behavior.
-- **Path Visualization:** A 3D preview of the loaded G-code to verify toolpaths and offsets before execution.
+- **Coordinate Registration:** Recording reference points on a substrate and computing a transform to align print paths with custom molds.
+- **Live Parameter Tuning:** Adjusting extrusion pressure, vacuum retract, and temperature settings mid-print to compensate for material behavior.
+- **Path Visualization:** A 3D preview of the loaded G-code to verify print paths and coordinate offsets before execution.
 
 The GUI also monitors system state through live serial feedback from the printer and uses ROS2 services (e.g., `M114`) to keep the displayed position synchronized with the physical hardware during setup and calibration.
 
