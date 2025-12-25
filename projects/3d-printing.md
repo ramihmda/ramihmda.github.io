@@ -26,7 +26,7 @@ I designed the control system around ROS2 to separate printer motion, pneumatic 
   <img src="/assets/images/ros_diagram.png"
        alt="ROS2 control architecture for liquid metal printing"
        style="max-width: 900px; display: block; margin: 0 auto;">
-  <figcaption style="max-width: 900px; margin: 0 auto;">
+  <figcaption style="max-width: 800px; margin: 0 auto;">
   ROS2 node architecture showing how motion execution, pneumatic control, and the GUI are decoupled and synchronized during printing.
   </figcaption>
 </figure>
