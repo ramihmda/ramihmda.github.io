@@ -15,12 +15,6 @@ While the mechanical modifications to the Prusa i3 MK3S+ were handled separately
   <img src="/assets/images/system_diagram.png" alt="Physical system overview" style="max-width: 900px; width: 100%;">
 </figure>
 
-**My Contributions**
-- Designed the ROS2-based control architecture
-- Implemented printer–dispenser synchronization
-- Built the wxPython GUI and calibration tools
-- Modified firmware for liquid metal deposition
-
 ## System Architecture
 I designed the control system around ROS2 to separate printer motion, pneumatic control, and user interaction into independent nodes. This decoupling keeps the printer’s G-code stream fast and stable while allowing extrusion parameters to be adjusted in real time.
 
@@ -31,7 +25,12 @@ I designed the control system around ROS2 to separate printer motion, pneumatic 
 The Printer Node acts as the coordinator during execution, communicating with the Dispenser Node over ROS2 topics to isolate time-critical deposition control from motion planning.
 
 <figure class="align-center">
-  <img src="/assets/images/ros_diagram.png" alt="ROS2 system architecture diagram" style="max-width: 900px; width: 100%;">
+  <img src="/assets/images/ros_diagram.png"
+       alt="ROS2 control architecture for liquid metal printing"
+       style="max-width: 900px; display: block; margin: 0 auto;">
+  <figcaption style="max-width: 900px; margin: 0 auto;">
+    The Printer Node coordinates motion execution and triggers the Dispenser Node via asynchronous ROS2 topics to synchronize extrusion with movement. The GUI Node provides manual overrides, calibration tools, and parameter tuning by communicating with both hardware nodes through dedicated topics and service calls.
+  </figcaption>
 </figure>
 
 ## Software Control & GUI
