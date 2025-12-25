@@ -5,35 +5,24 @@ author_profile: true
 ---
 
 ## Overview
-I converted a Prusa i3 MK3S+ into a liquid metal printing system by removing the stock filament extruder and replacing it with a syringe-based toolhead connected to a Nordson Ultimus V high-precision air dispenser. This allowed controlled extrusion of gallium-based conductive material instead of thermoplastic filament.
+The platform is built on a modified **Prusa i3 MK3S+**, where the standard filament extruder was removed and replaced with a syringe-based toolhead connected to a **Nordson Ultimus V high-precision air dispenser**. This configuration allows controlled deposition of gallium-based liquid metal for fabricating conductive strain sensors.
 
-System coordination was handled using ROS2, with separate nodes managing the printer, dispenser, camera, and a custom GUI. This structure enabled high-speed G-code streaming while independently controlling extrusion pressure and tuning parameters in real time.
-
-The platform was built for research-scale sensor fabrication, including printing within custom molds and maintaining stable deposition under nonstandard material behavior.
-
-![System architecture overview](../assets/images/system_diagram.png)
-
----
-
-## Motivation
-Liquid metal strain sensors require:
-- Precise control of extrusion pressure and motion timing
-- Careful thermal management
-- Accurate spatial alignment when printing into molds
-
-Commercial 3D printers and slicers are not designed for these constraints. This project addressed those gaps by tightly integrating hardware, firmware, and software into a unified fabrication pipeline.
+![Physical architecture overview](../assets/images/system_diagram.png)
 
 ---
 
 ## System Architecture
-The system consists of four tightly coupled subsystems:
+Printer motion, pneumatic control, and user interaction are handled as separate components using **ROS2**. By decoupling motion execution from extrusion control, the system maintains a high-speed G-code stream while allowing real-time adjustment of extrusion parameters. This architecture keeps deposition stable even when printing inside custom molds or on non-standard substrates.
 
-- **Modified Cartesian 3D printer** (motion + positioning)
-- **Precision air dispenser** for liquid metal extrusion
-- **Vision system** for monitoring and registration
-- **Custom control software** for coordination and parameter tuning
+Each major function operates as a separate ROS2 node:
 
-![System architecture overview](../assets/images/3d-printing/system_diagram.png)
+- **Printer Node:** Serves as the hardware interface for the Prusa MK3S+. It handles G-code streaming, motion execution, and spatial transformations required for printing within custom molds. During path execution, it publishes start/stop triggers to the dispenser topic to synchronize extrusion with physical motion.
+- **Dispenser Node:** Translates ROS messages into the serial command protocol used by the Nordson Ultimus V. It runs a dedicated worker loop to ensure pneumatic pulses are issued with minimal jitter.
+- **GUI Node:** Provides the operator interface for manual jogging, coordinate registration, and real-time parameter tuning. Extrusion pressure and vacuum settings can be adjusted mid-print without interrupting the printer’s serial buffer.
+
+Inter-node communication is handled through asynchronous ROS2 topics and services. The Printer Node acts as the primary coordinator during path execution, issuing commands to the Dispenser Node via the `/dispenser/cmd` topic. This architecture isolates time-critical deposition control from printer motion, allowing precise liquid metal extrusion while preserving the printer’s standard motion profile.
+
+![ROS2 system architecture diagram](../assets/images/ros_diagram.png)
 
 ---
 
