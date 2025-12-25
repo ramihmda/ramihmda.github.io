@@ -70,7 +70,7 @@ These calibrations enabled consistent, high-precision deposition suitable for re
 <figure class="align-center">
   <img src="/assets/images/sensor_samples.png"
        alt="Liquid metal pressure sweep test"
-       style="max-width: 700px; width: 100%;">
+       style="max-width: 500px; width: 100%;">
   <figcaption>
     Pressure sweep showing six gallium prints deposited at a fixed feed rate (12000) and Z height (15 mm).
     Pressure was increased from 1.2 bar to 1.7 bar in 0.1 bar increments to evaluate trace continuity and pooling behavior.
