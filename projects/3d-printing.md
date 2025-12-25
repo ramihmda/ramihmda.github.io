@@ -5,9 +5,13 @@ author_profile: true
 ---
 
 ## Overview
-This project focused on developing a custom 3D printing platform for the fabrication of **stretchable, liquid metal–based strain sensors**. The system integrates a modified Prusa i3 mk3s+ 3D printer with a precision air dispenser, custom firmware, and a modular ROS2 software stack to enable repeatable, high-accuracy deposition of gallium-based conductive traces.
+I converted a Prusa i3 MK3S+ into a liquid metal printing system by removing the stock filament extruder and replacing it with a syringe-based toolhead connected to a Nordson Ultimus V high-precision air dispenser. This allowed controlled extrusion of gallium-based conductive material instead of thermoplastic filament.
 
-The platform was designed to support **research-scale sensor fabrication**, including printing within custom molds and maintaining consistent deposition behavior under nonstandard material dynamics.
+System coordination was handled using ROS2, with separate nodes managing the printer, dispenser, camera, and a custom GUI. This structure enabled high-speed G-code streaming while independently controlling extrusion pressure and tuning parameters in real time.
+
+The platform was built for research-scale sensor fabrication, including printing within custom molds and maintaining stable deposition under nonstandard material behavior.
+
+![System architecture overview](../assets/images/3d-printing/system_diagram.png)
 
 ---
 
