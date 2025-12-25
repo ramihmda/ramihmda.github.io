@@ -9,14 +9,14 @@ classes: wide
 ## Overview
 This project focused on building the software and control infrastructure required to fabricate stretchable, liquid metal strain sensors using a modified 3D printing platform. Gallium behaves very differently from standard thermoplastics, making reliable deposition difficult without tight coordination between motion control, extrusion pressure, and timing.
 
-While the mechanical modifications to the **Prusa i3 MK3S+** were handled separately, I was responsible for the **entire software stack**. This included the ROS2 control architecture, printer–dispenser coordination, GUI development, firmware modifications, and calibration tools that enable repeatable liquid metal deposition using a **Nordson Ultimus V air dispenser**.
+While the mechanical modifications to the Prusa i3 MK3S+ were handled separately, I was responsible for the entire software stack. This included the ROS2 control architecture, printer–dispenser coordination, GUI development, firmware modifications, and calibration tools that enable repeatable liquid metal deposition using a Nordson Ultimus V air dispenser.
 
 <figure class="align-center">
   <img src="/assets/images/system_diagram.png" alt="Physical system overview" style="max-width: 900px; width: 100%;">
 </figure>
 
 ## System Architecture
-I designed the control system around **ROS2** to separate printer motion, pneumatic control, and user interaction into independent nodes. This decoupling keeps the printer’s G-code stream fast and stable while allowing extrusion parameters to be adjusted in real time.
+I designed the control system around ROS2 to separate printer motion, pneumatic control, and user interaction into independent nodes. This decoupling keeps the printer’s G-code stream fast and stable while allowing extrusion parameters to be adjusted in real time.
 
 - **Printer Node:** Streams G-code to the Prusa and handles motion execution and mold-aligned coordinate transforms. It also issues start/stop triggers to synchronize extrusion with movement.
 - **Dispenser Node:** Converts ROS commands into serial messages for the Nordson Ultimus V, using a dedicated worker loop to minimize pressure timing jitter.
@@ -64,6 +64,4 @@ These calibrations enabled consistent, high-precision deposition suitable for re
 <figure class="align-center">
   <img src="/assets/images/sensor_samples.png" alt="Printed liquid metal strain sensors" style="max-width: 900px; width: 100%;">
 </figure>
-
-**Impact:** Enabled repeatable fabrication of liquid metal strain sensors using a software-driven, mold-aligned printing workflow.
 
