@@ -46,8 +46,6 @@ The interface is organized into four primary control areas:
 ### Data Flow & Monitoring
 The GUI continuously monitors system state through a serial response terminal that displays real-time feedback from the Prusa firmware. Synchronous ROS2 services are used to poll the current nozzle position (`M114`), ensuring the graphical interface remains aligned with the printer’s physical state during manual setup and calibration.
 
-![User Interface Preview](../assets/images/gui.png)
-
 <figure class="align-center">
   <img src="/assets/images/gui.png" alt="User Interface Preview" style="max-width: 900px; width: 100%;">
 </figure>
