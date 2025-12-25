@@ -40,8 +40,6 @@ The interface provides four core functions:
 - **Live Parameter Tuning:** Adjusting extrusion pressure, vacuum retract, and temperature settings mid-print to compensate for material behavior.
 - **Path Visualization:** A 3D preview of the loaded G-code to verify print paths and coordinate offsets before execution.
 
-The GUI also monitors system state through live serial feedback from the printer and uses ROS2 services (e.g., `M114`) to keep the displayed position synchronized with the physical hardware during setup and calibration.
-
 <figure class="align-center">
   <img src="/assets/images/gui.png" alt="User Interface Preview" style="max-width: 900px; width: 100%;">
 </figure>
