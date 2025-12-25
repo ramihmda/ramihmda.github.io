@@ -11,7 +11,7 @@ System coordination was handled using ROS2, with separate nodes managing the pri
 
 The platform was built for research-scale sensor fabrication, including printing within custom molds and maintaining stable deposition under nonstandard material behavior.
 
-![System architecture overview](../assets/images/3d-printing/system_diagram.png)
+![System architecture overview](../assets/images/system_diagram.png)
 
 ---
 
