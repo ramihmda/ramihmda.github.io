@@ -9,7 +9,7 @@ classes: wide
 ## Overview
 This project involved building the software and control infrastructure needed to fabricate stretchable, liquid metal strain sensors using a modified 3D printing platform.
 
-While the mechanical modifications to the Prusa i3 MK3S+ were handled separately, I was responsible for the entire software stack. This included the ROS2 control architecture, printer–dispenser coordination, GUI development, firmware modifications, and calibration tools that enable repeatable liquid metal deposition using a Nordson Ultimus V air dispenser.
+While the mechanical modifications to the printer were handled separately, I was responsible for the entire software stack. This included the ROS2 control architecture, printer–dispenser coordination, GUI development, firmware modifications, and calibration tools for repeatable liquid metal deposition.
 
 <figure class="align-center">
   <img src="/assets/images/system_diagram.png" alt="Physical system overview" style="max-width: 900px; width: 100%;">
@@ -18,8 +18,8 @@ While the mechanical modifications to the Prusa i3 MK3S+ were handled separately
 ## System Architecture
 I designed the control system around ROS2 to separate printer motion, pneumatic control, and user interaction into independent nodes. This decoupling keeps the printer’s G-code stream fast and stable while allowing real-time adjustment of extrusion parameters.
 
-- **Printer Node:** Streams G-code to the Prusa and handles motion execution and mold-aligned coordinate transforms. It also issues start/stop triggers to synchronize extrusion with movement.
-- **Dispenser Node:** Converts ROS commands into serial messages for the Nordson Ultimus V, using a dedicated worker loop to minimize pressure timing jitter.
+- **Printer Node:** Streams G-code to the Prusa i3 MK3S+ and handles motion execution and mold-aligned coordinate transforms. It also issues start/stop triggers to synchronize extrusion with movement.
+- **Dispenser Node:** Converts ROS commands into serial messages for the Nordson Ultimus V air dispenser, using a dedicated worker loop to minimize pressure timing jitter.
 - **GUI Node:** Provides real-time control for jogging, registration, and parameter tuning without interrupting the printer’s serial buffer.
 
 <figure class="align-center">
@@ -52,7 +52,7 @@ I modified the stock Prusa firmware to support the non-standard hardware and the
 - **Sensor Calibration:** Thermistor tables and motion limits were updated to reflect the custom heating hardware and modified extruder geometry.
 
 ## Calibration and Path Optimization
-To achieve repeatable deposition, I calibrated the interaction between printer motion and pneumatic extrusion. Gallium’s high surface tension and low viscosity make it sensitive to mismatches between speed, pressure, and timing.
+To achieve repeatable deposition, I calibrated the interaction between printer motion and pneumatic extrusion. Gallium’s material properties make deposition highly sensitive to mismatches between speed, pressure, and timing.
 
 - **Pressure–Speed Matching:** Spiral test patterns were used to tune extrusion pressure against feed rate, preventing pooling at corners and discontinuities along straight paths.
 - **Z-Height Calibration:** A stepped calibration block was used to determine the nozzle offset that maintains a continuous material bridge without dragging or beading.
@@ -77,6 +77,27 @@ This approach replaces an earlier mold-based injection method that was slow and 
 
 <figure class="align-center">
   <img src="/assets/images/completed_sensor.png" alt="Completed liquid metal sensor" style="max-width: 900px; width: 100%;">
+</figure>
+
+## Experimental Testing & Data Collection
+I designed and implemented the software used to automate experimental testing and data collection for liquid metal strain sensor characterization. This included controlling the vertical motion mechanism, synchronizing force measurements, and recording electrical responses during loading and unloading cycles.
+
+I wrote Python code to:
+- Control the vertical actuator using Dynamixel motors
+- Apply repeatable displacement profiles programmatically
+- Read force measurements from a digital force gauge
+- Record voltage and resistance data during experiments
+- Process and interpolate trial data across multiple runs
+
+These tools enabled controlled, repeatable experiments and supported analysis of the relationship between applied force, displacement, and resistance change in the printed liquid metal traces.
+
+<figure class="align-center">
+  <img src="/assets/images/mint_experimental_setup.png"
+       alt="Experimental setup for liquid metal strain characterization"
+       style="max-width: 800px; margin: 0 auto;">
+  <figcaption style="max-width: 800px; margin: 0 auto;">
+    Experimental setup used for automated force–displacement testing and electrical measurement of printed liquid metal strain elements.
+  </figcaption>
 </figure>
 
 **Impact:** Enabled rapid, low-cost fabrication of complex liquid metal strain sensors using a software-driven printing workflow.
