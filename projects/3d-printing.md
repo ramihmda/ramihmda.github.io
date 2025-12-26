@@ -76,16 +76,9 @@ Liquid silicone was poured into a base mold and flattened using a lid press. Aft
 This approach replaces an earlier mold-based injection method that was slow and difficult to scale to complex designs. Direct printing enables faster iteration, lower cost, and fabrication of complex sensor geometries without custom tooling.
 
 <figure class="align-center">
-  <img src="/assets/images/completed_sensor.png" alt="Completed liquid metal sensor" style="max-width: 500px; width: 100%;">
-</figure>
-
-<figure class="align-center">
   <img src="/assets/images/completed_sensor.png"
        alt="Completed liquid metal sensor"
        style="max-width: 500px; display: block; margin: 0 auto;">
-  <figcaption style="max-width: 500px; margin: 0 auto;">
-    Completed sensor
-  </figcaption>
 </figure>
 
 
