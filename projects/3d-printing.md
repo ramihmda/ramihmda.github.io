@@ -97,8 +97,8 @@ These tools enabled controlled, repeatable experiments and supported analysis of
 <figure class="align-center">
   <img src="/assets/images/experimental_setup.png"
        alt="Experimental setup for liquid metal strain characterization"
-       style="max-width: 800px; margin: 0 auto;">
-  <figcaption style="max-width: 800px; margin: 0 auto;">
+       style="max-width: 500px; margin: 0 auto;">
+  <figcaption style="max-width: 500px; margin: 0 auto;">
     Experimental setup used for automated force–displacement testing and electrical measurement of printed liquid metal strain elements.
   </figcaption>
 </figure>
