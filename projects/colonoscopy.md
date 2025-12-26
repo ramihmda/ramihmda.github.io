@@ -16,16 +16,7 @@ My contributions were on the software side, including teleoperation control, sen
        alt="Experimental colonoscopy robot setup"
        style="max-width: 800px; display: block; margin: 0 auto;">
   <figcaption style="max-width: 800px; margin: 0 auto;">
-    <strong>Fig. 10.</strong> Experimental setup used for performing the case study, including:
-    ① CH gripping mechanism on a rotary stand,
-    ② passive rotary stand,
-    ③ PENTAX EC-3840LK colonoscope,
-    ④ internal tube monitoring for marker detection,
-    ⑤ NDI Aurora magnetic tracker,
-    ⑥ feeder mechanism,
-    ⑦ Xbox 360 joystick controller,
-    ⑧ U-shaped tube with internal markers,
-    and ⑨ end-effector camera (MISUMI XD-VB164A03LH-120).
+    <strong> Experimental setup used for performing the case study.
   </figcaption>
 </figure>
 
