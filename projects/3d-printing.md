@@ -95,7 +95,7 @@ I wrote Python code to:
 These tools enabled controlled, repeatable experiments and supported analysis of the relationship between applied force, displacement, and resistance change in the printed liquid metal traces.
 
 <figure class="align-center">
-  <img src="/assets/images/mint_experimental_setup.png"
+  <img src="/assets/images/experimental_setup.png"
        alt="Experimental setup for liquid metal strain characterization"
        style="max-width: 800px; margin: 0 auto;">
   <figcaption style="max-width: 800px; margin: 0 auto;">
