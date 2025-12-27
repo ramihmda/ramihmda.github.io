@@ -15,7 +15,7 @@ My contributions were on the software side, including teleoperation control, sen
   <img src="/assets/images/colon_setup.png"
        alt="Experimental colonoscopy robot setup"
        style="max-width: 800px; display: block; margin: 0 auto;">
-  <figcaption style="max-width: 800px; margin: 0 auto;">
+  <figcaption style="max-width: 750px; margin: 0 auto;">
   Experimental colonoscopy robot setup used for system testing. The setup includes a robotic actuation mechanism for the colonoscope, a curved test tube with internal markers, an NDI Aurora magnetic
   tracking system for tip sensing, and an end-effector camera providing live visualization during experiments.
   </figcaption>
