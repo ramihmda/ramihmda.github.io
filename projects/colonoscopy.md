@@ -15,9 +15,6 @@ My contributions were on the software side, including teleoperation control, sen
   <img src="/assets/images/colon_setup.png"
        alt="Experimental colonoscopy robot setup"
        style="max-width: 800px; display: block; margin: 0 auto;">
-  <figcaption style="max-width: 800px; margin: 0 auto;">
-    <strong> Experimental setup used for performing the case study.
-  </figcaption>
 </figure>
 
 ## Control & Teleoperation
