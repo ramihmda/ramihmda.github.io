@@ -7,7 +7,7 @@ classes: wide
 ---
 
 ## Overview
-This project involved building the software and control infrastructure needed to fabricate stretchable, liquid metal strain sensors using a modified 3D printing platform.
+This project focused on building the software and control infrastructure needed to fabricate stretchable, liquid metal strain sensors using a modified 3D printing platform.
 
 While the mechanical modifications to the printer were handled separately, I was responsible for the entire software stack. This included the ROS2 control architecture, printer–dispenser coordination, GUI development, firmware modifications, and calibration tools for repeatable liquid metal deposition.
 
