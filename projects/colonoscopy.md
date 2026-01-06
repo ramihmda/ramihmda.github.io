@@ -9,7 +9,7 @@ classes: wide
 ## Overview
 I worked on the software side of a robotic colonoscopy system designed to reduce operator fatigue during manual endoscope procedures. The robot has four motorized degrees of freedom and is controlled through teleoperation using a game controller.
 
-My work included teleoperation control, sensor integration, and the operator interface. I set up Xbox controller input mapping, integrated an NDI Aurora magnetic tracker for tip localization, and streamed video from a miniature camera at the end of the scope.
+My contributions included teleoperation control, sensor integration, and the operator interface. I set up Xbox controller input mapping, integrated an NDI Aurora magnetic tracker for tip localization, and streamed video from a miniature camera at the end of the scope.
 
 <figure class="align-center">
   <img src="/assets/images/colon_setup.png"
